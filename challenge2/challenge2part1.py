@@ -11,6 +11,9 @@ all_employees = [
 
 def get_all_employees_input(message):
     """ Ignore this function you don't need to understand or change it """
+
+    message = message.lower()
+
     if "testInput" in message:
         testInputString = message.split("testInput")[1].rstrip().lstrip()
         allEmployeesTestingInput = testInputString.split(",")
@@ -21,6 +24,10 @@ def get_all_employees_input(message):
 def problem2_1(message):
     all_employees = get_all_employees_input(message)
     beginsWithLetterCCount = 0
+    
+    for name in all_employees:
+        if name[0] == "C":
+            beginsWithLetterCCount += 1
 
 
     return str(beginsWithLetterCCount)
@@ -30,6 +37,9 @@ def problem2_2(message):
     all_employees = get_all_employees_input(message)
     peopleWithLongerThan8CharacterLastnamesCount = 0
 
+    for name in all_employees:
+        if len(name.split(" ")[1]) == 8:
+            peopleWithLongerThan8CharacterLastnamesCount += 1
 
     return str(peopleWithLongerThan8CharacterLastnamesCount)
 
@@ -38,5 +48,19 @@ def problem2_3(message):
     all_employees = get_all_employees_input(message)
     employeesWhoWillGetBonusesCount = 0
 
+    for name in all_employees:
+        if name.count('æ') == 1:
+            employeesWhoWillGetBonusesCount += 1
+        elif name.count('ẞ') == 1:
+            employeesWhoWillGetBonusesCount += 1       
+        elif name.count('ç') == 1:
+            employeesWhoWillGetBonusesCount += 1
+        elif name.count('Ö') == 1:
+            employeesWhoWillGetBonusesCount += 1
 
     return str(employeesWhoWillGetBonusesCount)
+
+
+print(problem2_1("chungus")) 
+print(problem2_2("chungus")) 
+print(problem2_3("chungus")) 
