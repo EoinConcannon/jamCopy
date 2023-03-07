@@ -1,58 +1,47 @@
-all_employees = [
-        'JOHNSON WILLIAMS','BROWN JONES','GARçIæ MILLER','DAVIS RODRIGUEZ','MARTINEZ HERNANDEZ','LOPEZ GONZALEZ',
-        'WILSON ANDERSON','THOMAS TAYLOR','MÖÖRE JACKSON','MARTIN LEE','PEREZ THOMPSON','WHITE HARRIß',
-        'SANCHEZ CLARK','RAMIREZ LEWIS','ROBINSON WALKER','YÖUNG ALLEN','KING WRIGHT','SCOTT TORRES',
-        'NGUYEN HILL','FLORES GREEN','ADAMS NELSON','BAKER HALL','RIVERA CAMPBELL','MITCHELL CARTER',
-        'ROBERTS GOMEZ','PHILLIPẞ EVANS','TURNER DIAZ','PARKER CRUZ','EDWARDS COLLINS','REYES STEWART',
-        'MORRIS MORALES','MURPHY COOK','ROGERS GUTIERREZ','ORTIZ MORGAN','COOPER PETERSON',
-        'BAILEY REED','HANẞ HOWARD','RAMOS KIM','CÖX WARD','RICHARDSON WATSON','BROOKS CHAVEZ',
-        'WOOD JAMES','BENNETT GRAY','MENDOZA RUIZ','HUGHES PRICE','ALVAREZ çASTILLO'
+import math
+
+prices = [
+        437,309,628,198,675,637,549,133,370,570,681,396,215,349,699,203,66,86,56,438,680,555,434,432,399,239,403,595,512,630,
+        641,660,665,553,462,286,579,353,523,202,287,647,155,291,443,448,369,209,358,220,84,429,677,206,419,301,179,615,454,
+        158,627,119,60,633,242,583,643,601,500,210,248,363,135,535,611,97,392,52,475,101,477,518,509,300,484,688,670,385,
+        496,294,537,360,446,126,51,68,276,580,273,557,463,67,338,697,526,664,694,304,285,337,270,689,356,145,280,107,343,
+        659,409,459,205
     ]
 
-def get_all_employees_input(message):
+def get_prices_input(message):
     """ Ignore this function you don't need to understand or change it """
     if "testInput" in message:
         testInputString = message.split("testInput")[1].rstrip().lstrip()
-        allEmployeesTestingInput = testInputString.split(",")
-        return allEmployeesTestingInput
-    return all_employees
-
-# Functions that your team will implement
-def problem2_1(message):
-    all_employees = get_all_employees_input(message)
-    beginsWithLetterCCount = 0
-    
-    for name in employee_names:
-        if name[0] == "C":
-            beginsWithLetterCount += 1
+        pricesTestingInput = testInputString.split(",")
+        return [int(k) for k in pricesTestingInput]
+    return prices
 
 
-    return str(beginsWithLetterCCount)
+def problem2_4(message):
+    prices = get_prices_input(message)
+    mostExpensivePrice = max(prices)
+
+    return str(mostExpensivePrice)
 
 
-def problem2_2(message):
-    all_employees = get_all_employees_input(message)
-    peopleWithLongerThan8CharacterLastnamesCount = 0
-
-    for name in employee_names:
-        if len(name.split(" ")[1]) == 8:
-            peopleWithLongerThan8CharacterLastnamesCount += 1
-
-    return str(peopleWithLongerThan8CharacterLastnamesCount)
+def problem2_5(message):
+    prices = get_prices_input(message)
+    totalCost = sum(prices)
 
 
-def problem2_3(message):
-    all_employees = get_all_employees_input(message)
-    employeesWhoWillGetBonusesCount = 0
+    return str(totalCost)
 
-    
-    if input_message.count('æ') == 1:
-        employeesWhoWillGetBonusesCount += 1
-    elif input_message.count('ẞ') == 1:
-        employeesWhoWillGetBonusesCount += 1       
-    elif input_message.count('ç') == 1:
-        employeesWhoWillGetBonusesCount += 1
-    elif input_message.count('Ö') == 1:
-        employeesWhoWillGetBonusesCount += 1
 
-    return str(employeesWhoWillGetBonusesCount)
+def problem2_6(message):
+    prices = get_prices_input(message)
+    prices = sum(prices)*11.03
+    totalCost = round(prices)
+
+
+    return str(totalCost)
+
+
+print(problem2_4(prices))
+print(problem2_5(prices))
+print(problem2_6(prices))
+
