@@ -28,11 +28,13 @@ def weather(message):
 
     # 3.3 doesn't really introcude any new concepts. You're on your own!
 
+    print(city_coords['galway'])
+
     date_now = (datetime.now() - timedelta(days=-1)).strftime('%Y-%m-%d')
     daily_params = ['temperature_2m_max', 'rain_sum', 'windspeed_10m_max']
     params = {
-        'latitude': 0,  # You need to update this
-        'longitude': 0, # ... and this
+        'latitude': city_coords['galway'],  # You need to update this
+        'longitude': city_coords['galway'], # ... and this
         'start_date': date_now,
         'end_date': date_now,
         'timezone': 'GMT',
@@ -48,3 +50,5 @@ def weather(message):
 
     # This is a placeholder response to show how to drill into the info that you're interested in.
     return response['daily']['time'][0]
+
+weather('galway')
