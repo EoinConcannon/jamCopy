@@ -21,6 +21,10 @@ def has_email_been_pwned(email):
 
     # Make your GET request here!
 
+    website_result = requests.get(url, headers)
+
+    print(website_result)
+
     pwned_times = 0 # This is where you come in!
     pwned_message = f'Oh no you have been pwned. The email "{email}" appeared in {pwned_times} breaches.'
     not_pwned_message = f'All good! The email "{email}" was never pwned.'
@@ -67,3 +71,6 @@ def has_password_been_pwned(password):
     pwned_message = f'Oh no you have been pwned. The password "{password}" appeared {0} times'
 
     return pwned_message
+
+
+has_email_been_pwned("seamusknightly")
